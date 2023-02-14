@@ -1,20 +1,32 @@
-fn read_line(var_to_read: &mut String) -> usize {
-    std::io::stdin().read_line(var_to_read).expect("")
-}
+use std::io;
 
 fn main() {
-    let mut employer_name: String = String::new();
-    let mut input = String::new();
-    read_line(&mut employer_name);
-    
-    read_line(&mut input);
-    let salary: f64 = input.trim().parse::<f64>().unwrap();
-    input.clear();
+    loop {
+        let mut input: String = String::new();
+        io::stdin().read_line(&mut input).expect("");
 
-    read_line(&mut input);
-    let total_sell: f64 = input.trim().parse::<f64>().unwrap();
+        let wagons_length: i32 = input.trim().parse().expect("Isn't a int num");
 
-    let result: f64 = salary as f64 + ((total_sell as f64) * (0.15));
+        if wagons_length == 0 {
+            break;
+        }
 
-    println!("TOTAL = R$ {:.2}", result);
+        let i: i32 = -1;
+        while i != 0 {
+            if i == 0 {
+                println!("Yes");
+                continue;
+            }
+            input.clear();
+            io::stdin().read_line(&mut input).expect("");
+
+            let wagons: Vec<u32> = input
+                .trim()
+                .split(' ')
+                .map(|v| v.parse::<u32>().unwrap())
+                .collect();
+
+            let can_reorder: bool = wagons.
+        }
+    }
 }
